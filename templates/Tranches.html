@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información de Tramo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: #007BFF;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+    .content p {
+      color: #555;
+      line-height: 1.6;
+    }
+    .content .details {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-radius: 8px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 10px;
+      background: #f1f1f1;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Información del tramo</h1>
+    </div>
+    <div class="content">
+      <p>Querido Usuario Le proporcionamos los detalles correspondientes al tramo actual de su envío con el número de rastreo</p>
+      <h4>{{ routeid }}</h4>
+      <p><strong>Fecha de Inicio:</strong> {{ start_date }}</p>
+      <p><strong>Fecha de Llegada Estimada:</strong> {{ end_date }}</p>
+      <p><strong>Origen:</strong> {{ origin }}</p>
+      <p><strong>Destino:</strong> {{ destination }}</p>
+      
+        Puedes seguir el progreso de tu carga en tiempo real desde nuestra plataforma: 
+        <a href="{{ trackingURL }}">Ver Seguimiento</a>.
+      </p>
+    </div>
+    <div class="footer">
+        <p>© 2024 Cooperativa UC. Todos los derechos reservados.</p>
+        <p><a href="https://CooperativaUC.com">Visita nuestro sitio web</a></p>
+    </div>
+  </div>
+</body>
+</html>

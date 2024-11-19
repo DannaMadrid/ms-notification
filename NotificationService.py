@@ -54,31 +54,6 @@ def send_email(subject, recipient_email, body_html):
         return False, str(e)
 
 # Endpoint para enviar el correo
-@app.route('/welcom', methods=['POST'])
-def Send_welcom():
-    data = request.json
-    recipient = data.get('recipient')
-    username = data.get('username')
-    
-    template = load_html_template('bienvenida.html')
-    if not template:
-        return jsonify({'error': 'Template not found'}), 404
-
-    body_html = template.render(username=username) 
-    subject = "Bienvenido a Nuestro Servicio"
-    if body_html:
-        body_html = body_html.replace('{{ username }}', username)  # Reemplaza el marcador
-
-        success = send_email(subject, recipient, body_html)
-        print(f'Success: {success}')
-        if success:
-            print('Email sent successfully')
-            return jsonify({'message': 'Email sent successfully'})
-        else:
-            print(f'Failed to send email')
-            return jsonify({'error': 'Failed to send email'})
-    else:
-        return jsonify({'error': 'Template not found'})
 
 #endpoint para enviar notificacion de pago        
 @app.route('/paymentNotification', methods=['POST'])
@@ -103,8 +78,6 @@ def send_payment_notification():
         return jsonify({'message': 'Notification email sent successfully'})
     else:
         return jsonify({'error': 'Failed to send notification email'})
-
-    
 
 
 @app.route('/2FA', methods=['POST'])
@@ -166,5 +139,34 @@ def Send_Password():
             return jsonify({'error': 'Failed to send email'})
     else:
         return jsonify({'error': 'Template not found'})
+
+@app.route('/PuebaConexion', methods=['POST'])
+def PruebaConexion():
+
+    data = request.json
+    recipient = data.get('recipient')
+    movie = data.get('movie')
+    
+    template = load_html_template('conexionMsLog.html')
+    
+    if not template:
+        return jsonify({'error': 'Template not found'}), 404
+
+    body_html = template.render(movie=movie)
+    subject = "Pruba de conexion con ms-log"
+    if body_html:
+        body_html = body_html.replace('{{movie}}', movie)  # Reemplaza el marcador
+
+        success = send_email(subject, recipient, body_html)
+        print(f'Success: {success}')
+        if success:
+            print('Email sent successfully')
+            return jsonify({'message': 'Email sent successfully'})
+        else:
+            print(f'Failed to send email')
+            return jsonify({'error': 'Failed to send email'})
+    else:
+        return jsonify({'error': 'Template not found'})
+
 if __name__ == "__main__":
     app.run(debug=True)

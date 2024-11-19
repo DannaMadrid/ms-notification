@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificación de Contrato</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content h1 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+    .content p {
+      color: #555;
+      line-height: 1.6;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 10px;
+      background: #f1f1f1;
+    }
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Nuevo Contrato Creado</h1>
+    </div>
+    <div class="content">
+      <h1>Detalles del Contrato</h1>
+      <p><strong>Descripción:</strong> {{ description }}</p>
+      <p><strong>Fecha:</strong> {{ date }}</p>
+      <p><strong>Cliente:</strong> {{ customer }}</p>
+      <p>Este contrato ha sido registrado exitosamente en el sistema.</p>
+      <p>
+        Si tienes alguna pregunta, no dudes en contactarnos. Estamos aquí para ayudarte.
+      </p>
+    </div>
+    <div class="footer">
+        <p>© 2024 Cooperativa UC. Todos los derechos reservados.</p>
+        <p><a href="https://CooperativaUC.com">Visita nuestro sitio web</a></p>
+    </div>
+  </div>
+</body>
+</html>
